@@ -7,7 +7,10 @@ import About from "./Pages/About.jsx";
 // Layout wrapper — only background + main content
 function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 text-white flex flex-col">
+    <div className="min-h-screen flex flex-col
+      bg-gradient-to-br from-blue-600 via-blue-400/30 to-white/20
+      text-white">
+
       {/* Main content area */}
       <main className="flex-1 flex flex-col items-center justify-start pt-10 pb-16 px-4 sm:px-6 w-full">
         {children}

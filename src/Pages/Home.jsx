@@ -35,7 +35,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-800 text-white">
+    <div className="w-full min-h-screen flex flex-col
+      bg-gradient-to-br from-blue-600 via-blue-400/30 to-white/20
+      text-white">
 
       {/* Navbar */}
       <Navbar />
