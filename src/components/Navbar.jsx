@@ -1,29 +1,15 @@
-// src/components/Navbar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-600 text-white px-6 py-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* App Name with link to Home */}
-        <h1 className="text-2xl font-bold">
-          <Link to="/" className="hover:text-gray-200 transition-colors duration-200">
-            WeatherNow
-          </Link>
-        </h1>
+    <div className="bg-gradient-to-r from-blue-200 via-blue-100 to-blue-50 px-8 py-4 flex justify-between items-center">
+      <h2 className="font-semibold text-gray-700">Weather Dashboard</h2>
 
-        {/* About Page Link */}
-        <div>
-          <Link
-            to="/about"
-            className="text-white hover:text-gray-200 transition-colors duration-200"
-          >
-            About
-          </Link>
-        </div>
-      </div>
-    </nav>
+      <Link to="/about" className="text-gray-600 hover:text-gray-800 font-medium">
+        About
+      </Link>
+    </div>
   );
 };
 

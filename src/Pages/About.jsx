@@ -1,25 +1,32 @@
-// src/pages/About.jsx
-import React from "react";
-import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
+import Navbar from "../components/Navbar.jsx";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-blue-50">
-      <Navbar />
-      <main className="flex-grow container mx-auto p-6 text-center">
-        <h1 className="text-3xl font-bold mb-4">About This Project</h1>
-        <p className="text-lg mb-2">
-          Weather Dashboard is a React application built with Vite and styled using Tailwind CSS.
-        </p>
-        <p className="text-lg mb-2">
-          It fetches real-time weather data from the OpenWeatherMap API and displays it in a user-friendly dashboard.
-        </p>
-        <p className="text-lg">
-          Features include search by city, loading states, error handling, responsive design, and mobile optimization.
-        </p>
-      </main>
-      <Footer />
+    <div className="min-h-screen flex flex-col items-center">
+
+      <h1 className="text-2xl font-semibold text-gray-600 mt-10 mb-6">
+        About Page
+      </h1>
+
+      <div className="w-full max-w-3xl bg-white/60 backdrop-blur-xl rounded-3xl shadow-[0_20px_60px_rgba(0,120,255,0.15)] overflow-hidden">
+
+        <Navbar />
+
+        <div className="p-10">
+          <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg p-8">
+            <h2 className="text-xl font-semibold mb-4">About This App</h2>
+            <p className="text-gray-700">
+              This is a simple weather application that provides current weather updates for cities around the world.
+            </p>
+            <p className="mt-3 italic text-gray-600">
+              Enter a city name to get the latest weather conditions.
+            </p>
+          </div>
+        </div>
+
+        <Footer />
+      </div>
     </div>
   );
 };

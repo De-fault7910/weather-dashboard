@@ -1,31 +1,29 @@
-// src/components/SearchBar.jsx
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {
   const [city, setCity] = useState("");
 
-  const handleSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    if (!city.trim()) return; // prevent empty search
-    onSearch(city.trim());
-    setCity(""); // clear input
+    if (!city.trim()) return;
+    onSearch(city);
+    setCity("");
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col sm:flex-row justify-center items-center mt-6 gap-2"
-    >
+    <form onSubmit={submit} className="flex justify-center gap-3">
       <input
         type="text"
-        placeholder="Enter city"
+        placeholder="Enter city..."
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        className="border rounded-lg px-4 py-2 w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all"
+        className="w-full max-w-md px-6 py-3 rounded-full bg-white shadow-inner border outline-none"
       />
+
       <button
         type="submit"
-        className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors w-full sm:w-auto"
+        className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-400 text-white font-semibold shadow-lg hover:scale-105 transition"
       >
         Search
       </button>
