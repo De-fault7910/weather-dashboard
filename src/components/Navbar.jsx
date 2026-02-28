@@ -1,16 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-const Navbar = () => {
+const SearchBar = ({ onSearch }) => {
+  const [city, setCity] = useState("");
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (!city.trim()) return;
+    onSearch(city);
+    setCity("");
+  };
+
   return (
-    <div className="bg-gradient-to-r from-blue-200 via-blue-100 to-blue-50 px-8 py-4 flex justify-between items-center">
-      <h2 className="font-semibold text-gray-700">Weather Dashboard</h2>
+    <form onSubmit={submit} className="flex justify-center gap-2">
+      <input
+        type="text"
+        placeholder="Enter city..."
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        className="w-full max-w-[250px] px-3 py-2 rounded-full bg-white shadow-inner border outline-none"
+      />
 
-      <Link to="/about" className="text-gray-600 hover:text-gray-800 font-medium">
-        About
-      </Link>
-    </div>
+      <button
+        type="submit"
+        className="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition"
+      >
+        Search
+      </button>
+    </form>
   );
 };
 
-export default Navbar;
+export default SearchBar;

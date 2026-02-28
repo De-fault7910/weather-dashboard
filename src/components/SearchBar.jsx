@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {
   const [city, setCity] = useState("");
@@ -18,12 +17,12 @@ const SearchBar = ({ onSearch }) => {
         placeholder="Enter city..."
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        className="w-full max-w-md px-6 py-3 rounded-full bg-white shadow-inner border outline-none"
+        className="w-full max-w-sm px-5 py-2.5 rounded-full bg-white shadow-inner border outline-none"
       />
 
       <button
         type="submit"
-        className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-400 text-white font-semibold shadow-lg hover:scale-105 transition"
+        className="px-6 py-2.5 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 transition"
       >
         Search
       </button>
