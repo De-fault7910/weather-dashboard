@@ -1,31 +1,78 @@
+// components/WeatherCard.jsx
 import React from "react";
+
 const WeatherCard = ({ weather }) => {
+  if (!weather) return null;
+
+  const city = weather.name || "Unknown";
+  const temp = Math.round(weather.main?.temp ?? 0);
+  const feelsLike = Math.round(weather.main?.feels_like ?? 0);
+  const condition = weather.weather?.[0]?.main ?? "--";
+  const description = weather.weather?.[0]?.description ?? "";
+  const iconCode = weather.weather?.[0]?.icon;
+  const humidity = weather.main?.humidity ?? "--";
+  const windSpeed = weather.wind?.speed ?? "--";
+  const pressure = weather.main?.pressure ?? "--";
+
   return (
-    <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-[0_15px_40px_rgba(0,120,255,0.2)] p-8 w-full max-w-md">
+    <div className="
+      w-full 
+      max-w-[95vw]    /* almost full screen width */
+      bg-white/10 
+      backdrop-blur-xl 
+      border border-white/20 
+      rounded-2xl 
+      shadow-2xl 
+      overflow-hidden 
+      text-white
+      mx-auto
+    ">
+      {/* Main weather info */}
+      <div className="p-6 sm:p-12 text-center">
+        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-2">{city}</h2>
+        <p className="text-lg sm:text-2xl capitalize opacity-90 mb-5">{description}</p>
 
-      <h2 className="text-xl font-semibold text-gray-700 mb-4">
-        {weather.name}
-      </h2>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+          {iconCode ? (
+            <img
+              src={`https://openweathermap.org/img/wn/${iconCode}@4x.png`}
+              alt={description}
+              className="w-28 h-28 sm:w-40 sm:h-40 drop-shadow-lg"
+            />
+          ) : (
+            <div className="w-28 h-28 sm:w-40 sm:h-40 bg-white/20 rounded-full flex items-center justify-center">
+              <span className="text-white/70">N/A</span>
+            </div>
+          )}
 
-      <div className="flex items-center gap-6">
-        <img
-          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-          className="w-24 h-24"
-        />
-
-        <div>
-          <p className="text-4xl font-bold text-gray-800">
-            {Math.round(weather.main.temp)}°C
-          </p>
-          <p className="text-lg text-gray-600">
-            {weather.weather[0].main}
-          </p>
+          <div className="flex flex-col items-center sm:items-start">
+            <p className="text-7xl sm:text-8xl font-light tracking-tighter">{temp}°</p>
+            <p className="text-2xl sm:text-3xl font-medium opacity-90">{condition}</p>
+          </div>
         </div>
       </div>
 
-      <div className="mt-6 space-y-2 text-gray-700">
-        <p>Humidity: {weather.main.humidity}%</p>
-        <p>Wind: {weather.wind.speed} km/h</p>
+      {/* Details grid */}
+      <div className="px-6 sm:px-12 pb-6 sm:pb-10 grid grid-cols-2 sm:grid-cols-4 gap-5 sm:gap-8 border-t border-white/10 pt-6">
+        <div className="text-center">
+          <p className="text-sm sm:text-base opacity-70">Feels like</p>
+          <p className="text-xl sm:text-2xl font-semibold">{feelsLike}°</p>
+        </div>
+
+        <div className="text-center">
+          <p className="text-sm sm:text-base opacity-70">Humidity</p>
+          <p className="text-xl sm:text-2xl font-semibold">{humidity}%</p>
+        </div>
+
+        <div className="text-center">
+          <p className="text-sm sm:text-base opacity-70">Wind</p>
+          <p className="text-xl sm:text-2xl font-semibold">{windSpeed} m/s</p>
+        </div>
+
+        <div className="text-center">
+          <p className="text-sm sm:text-base opacity-70">Pressure</p>
+          <p className="text-xl sm:text-2xl font-semibold">{pressure} hPa</p>
+        </div>
       </div>
     </div>
   );
