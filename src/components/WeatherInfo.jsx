@@ -1,11 +1,10 @@
-// components/WeatherInfo.jsx
+// src/components/WeatherInfo.jsx
 import React from "react";
 
 const WeatherInfo = ({ weather }) => {
-  // Helper to safely get values with fallback
+  // Helper to safely get nested values with fallback
   const getValue = (path, unit = "") => {
     try {
-      // Simple path resolver (you can expand if needed)
       const value = path.reduce((obj, key) => obj?.[key], weather);
       return value !== undefined ? `${value}${unit}` : "--";
     } catch {
@@ -19,8 +18,10 @@ const WeatherInfo = ({ weather }) => {
     { label: "Humidity", value: getValue(["main", "humidity"], "%") },
     { label: "Wind Speed", value: getValue(["wind", "speed"], " m/s") },
     { label: "Pressure", value: getValue(["main", "pressure"], " hPa") },
-    // Add more if your API returns them (e.g. visibility, sunrise/sunset)
+    // Optional extra fields:
     // { label: "Visibility", value: getValue(["visibility"], " m") },
+    // { label: "Sunrise", value: getValue(["sys", "sunrise"]) },
+    // { label: "Sunset", value: getValue(["sys", "sunset"]) },
   ];
 
   return (

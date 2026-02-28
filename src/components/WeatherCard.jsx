@@ -1,4 +1,4 @@
-// components/WeatherCard.jsx
+// src/components/WeatherCard.jsx
 import React from "react";
 
 const WeatherCard = ({ weather }) => {
@@ -15,19 +15,9 @@ const WeatherCard = ({ weather }) => {
   const pressure = weather.main?.pressure ?? "--";
 
   return (
-    <div className="
-      w-full           /* full width */
-      min-h-[100vh]    /* optional: fill full screen height if you want */
-      bg-white/10 
-      backdrop-blur-xl 
-      border border-white/20 
-      rounded-none      /* remove rounded corners if you want full-width flush */
-      shadow-2xl 
-      overflow-hidden 
-      text-white
-      mx-auto
-    ">
-      {/* Main weather info */}
+    <div className="w-full min-h-[100vh] bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl overflow-hidden text-white mx-auto rounded-2xl transition-all duration-300 hover:shadow-3xl">
+      
+      {/* Main Weather Info */}
       <div className="p-6 sm:p-12 text-center">
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-2">{city}</h2>
         <p className="text-lg sm:text-2xl capitalize opacity-90 mb-5">{description}</p>
@@ -52,7 +42,7 @@ const WeatherCard = ({ weather }) => {
         </div>
       </div>
 
-      {/* Details grid */}
+      {/* Weather Details Grid */}
       <div className="px-6 sm:px-12 pb-6 sm:pb-10 grid grid-cols-2 sm:grid-cols-4 gap-5 sm:gap-8 border-t border-white/10 pt-6">
         <div className="text-center">
           <p className="text-sm sm:text-base opacity-70">Feels like</p>
