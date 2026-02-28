@@ -1,3 +1,4 @@
+// components/SearchBar.jsx
 import React, { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {
@@ -11,7 +12,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={submit} className="flex justify-center gap-3">
+    <form onSubmit={submit} className="flex justify-center gap-3 w-full max-w-[95vw] mx-auto">
       <input
         type="text"
         placeholder="Enter city..."
@@ -22,7 +23,16 @@ const SearchBar = ({ onSearch }) => {
 
       <button
         type="submit"
-        className="px-6 py-2.5 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 transition"
+        className="
+          px-6 py-2.5 
+          rounded-full 
+          bg-blue-500 text-white 
+          font-semibold 
+          shadow-lg 
+          hover:bg-blue-400 
+          active:bg-blue-600 
+          transition-colors duration-200
+        "
       >
         Search
       </button>

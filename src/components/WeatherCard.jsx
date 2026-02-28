@@ -16,12 +16,12 @@ const WeatherCard = ({ weather }) => {
 
   return (
     <div className="
-      w-full 
-      max-w-[95vw]    /* almost full screen width */
+      w-full           /* full width */
+      min-h-[100vh]    /* optional: fill full screen height if you want */
       bg-white/10 
       backdrop-blur-xl 
       border border-white/20 
-      rounded-2xl 
+      rounded-none      /* remove rounded corners if you want full-width flush */
       shadow-2xl 
       overflow-hidden 
       text-white

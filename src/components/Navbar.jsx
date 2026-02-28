@@ -1,56 +1,31 @@
-// components/SearchBar.jsx
-import React, { useState } from "react";
+// src/components/Navbar.jsx
+import React from "react";
+import { Link } from "react-router-dom";
 
-const SearchBar = ({ onSearch }) => {
-  const [city, setCity] = useState("");
-
-  const submit = (e) => {
-    e.preventDefault();
-    if (!city.trim()) return;
-    onSearch(city);
-    setCity("");
-  };
-
+const Navbar = () => {
   return (
-    <form onSubmit={submit} className="flex flex-col sm:flex-row justify-center gap-3 w-full max-w-[95vw] mx-auto">
-      <input
-        type="text"
-        placeholder="Enter city..."
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        className="
-          w-full 
-          flex-1
-          px-4 py-3 
-          rounded-full 
-          bg-white/90 
-          text-gray-800 
-          shadow-inner 
-          border border-white/20 
-          outline-none 
-          focus:ring-2 focus:ring-blue-400 focus:ring-opacity-70
-          transition
-        "
-      />
+    <nav className="w-full bg-blue-900/80 backdrop-blur-md sticky top-0 z-50 shadow-md">
+      <div className="flex justify-between items-center px-5 sm:px-8 py-4 max-w-full">
+        {/* App Name */}
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+          <Link to="/" className="hover:text-gray-200 transition-colors duration-200">
+            WeatherNow
+          </Link>
+        </h1>
 
-      <button
-        type="submit"
-        className="
-          px-6 py-3 
-          rounded-full 
-          bg-blue-600 
-          text-white 
-          font-semibold 
-          shadow 
-          hover:bg-blue-700 
-          active:bg-blue-800 
-          transition
-        "
-      >
-        Search
-      </button>
-    </form>
+        {/* Navigation Links */}
+        <div className="flex space-x-4">
+          <Link
+            to="/about"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 rounded-lg font-medium transition-colors duration-150 shadow-sm"
+          >
+            About
+          </Link>
+          
+        </div>
+      </div>
+    </nav>
   );
 };
 
-export default SearchBar;
+export default Navbar;
