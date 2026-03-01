@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/weather-dashboard/',   // 🔴 THIS LINE FIXES THE BLANK PAGE
+  base: '/weather-dashboard/',  
 })
