@@ -4,9 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import About from "./Pages/About.jsx";
 
-/**
- * Layout wrapper — handles page background and main content positioning.
- */
 function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-600 via-blue-400/30 to-white/20 text-white">
@@ -17,27 +14,14 @@ function Layout({ children }) {
   );
 }
 
+const basename = process.env.REACT_APP_BASENAME || "/";
+
 function App() {
   return (
-    // 🔴 Set basename to your repo name for GitHub Pages
-    <Router basename="/weather-dashboard">
+    <Router basename={basename}>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout>
-              <Home />
-            </Layout>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <Layout>
-              <About />
-            </Layout>
-          }
-        />
+        <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="/about" element={<Layout><About /></Layout>} />
       </Routes>
     </Router>
   );
