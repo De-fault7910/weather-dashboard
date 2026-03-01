@@ -14,7 +14,8 @@ function Layout({ children }) {
   );
 }
 
-const basename = process.env.REACT_APP_BASENAME || "/";
+// Use Vite environment variable
+const basename = import.meta.env.VITE_BASENAME || "/";
 
 function App() {
   return (
